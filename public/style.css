@@ -1,0 +1,67 @@
+
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#667085;
+  --primary:#0b61ff;
+  --accent:#16a34a;
+  --shadow: 0 8px 24px rgba(15,23,42,0.06);
+}
+[data-theme="dark"]{
+  --bg:#071229;
+  --card:#071427;
+  --text:#e6eef8;
+  --muted:#9aa6b2;
+  --primary:#66a3ff;
+  --accent:#34d399;
+  --shadow: 0 8px 24px rgba(2,6,23,0.6);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 18px;
+  background:var(--card);
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  box-shadow:var(--shadow);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.title{font-weight:700; font-size:1.05rem}
+.controls button{background:transparent;border:0;font-size:1.2rem;cursor:pointer}
+.container{max-width:920px;margin:22px auto;padding:18px}
+.tabs{display:flex;gap:8px; margin-bottom:12px;flex-wrap:wrap}
+.tab{background:transparent;border:0;padding:8px 10px;border-radius:8px;cursor:pointer;color:var(--muted)}
+.tab.active{background:var(--card);box-shadow:var(--shadow);color:var(--primary);font-weight:600}
+.panel{background:var(--card);padding:16px;border-radius:10px;box-shadow:var(--shadow);margin-bottom:14px}
+.hidden{display:none}
+label{display:block;margin-bottom:8px;color:var(--muted);font-size:0.95rem}
+textarea,input,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent;color:var(--text);}
+.row{display:flex;gap:8px;margin-top:10px;align-items:center}
+button.primary{background:var(--primary);color:white;padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+.output{white-space:pre-wrap;background:rgba(0,0,0,0.02);padding:12px;border-radius:8px;margin-top:12px;color:var(--text)}
+.chat-window{min-height:200px;border-radius:8px;padding:12px;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
+.chat-form{display:flex;gap:8px;margin-top:10px}
+.chat-form input{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);}
+.ads-slot{margin-top:12px;padding:12px;border:1px dashed rgba(0,0,0,0.06);text-align:center;color:var(--muted);border-radius:8px;background:transparent}
+.footer{max-width:920px;margin:0 auto 40px;padding:8px;text-align:center;color:var(--muted)}
+
+/* responsive */
+@media (max-width:640px){
+  .container{padding:12px;margin:12px}
+  .site-header{padding:10px}
+  .title{font-size:1rem}
+  .row{flex-direction:column}
+}

@@ -1,0 +1,16 @@
+{
+  "name": "groq_fullstack_enhanced",
+  "version": "1.0.0",
+  "description": "AI toolkit with Groq backend, improved quiz parsing, rate limiting, profanity filtering",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

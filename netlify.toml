@@ -1,0 +1,10 @@
+
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/groq"
+  to = "/.netlify/functions/groq"
+  status = 200
+  force = true
