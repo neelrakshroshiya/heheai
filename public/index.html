@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀LittleAI🚀</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <h1>AI Assistant</h1>
+                    <span class="tagline">Smart • Fast • Reliable • Created By Neel</span>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="summarizer">
+                <i class="fas fa-file-text"></i>
+                <span>Summarizer</span>
+            </button>
+            <button class="tab-btn" data-tab="quiz">
+                <i class="fas fa-question-circle"></i>
+                <span>Quiz</span>
+            </button>
+            <button class="tab-btn" data-tab="chat">
+                <i class="fas fa-comments"></i>
+                <span>Chat</span>
+            </button>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="main-content">
+            
+            <!-- Summarizer Tab -->
+            <div class="tab-content active" id="summarizer">
+                <div class="content-grid">
+                    <div class="input-section">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-file-text"></i> Text Summarizer</h3>
+                                <p>Transform long text into concise summaries</p>
+                            </div>
+                            <div class="card-body">
+                                <textarea 
+                                    id="summarizerInput" 
+                                    placeholder="Paste your text here to get a smart summary..."
+                                    rows="10"
+                                ></textarea>
+                                <div class="button-group">
+                                    <button class="btn btn-primary" id="summarizeBtn">
+                                        <i class="fas fa-magic"></i>
+                                        Summarize Text
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="clearHistory('summarizer')">
+                                        <i class="fas fa-trash"></i>
+                                        Clear History
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="history-section">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-history"></i> Summary History</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chat-history" id="summarizerHistory">
+                                    <div class="empty-state">
+                                        <i class="fas fa-file-text"></i>
+                                        <p>No summaries yet. Start by entering some text!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Tab -->
+            <div class="tab-content" id="quiz">
+                <div class="content-grid">
+                    <div class="input-section">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-question-circle"></i> Quiz Generator</h3>
+                                <p>Create engaging quizzes on any topic</p>
+                            </div>
+                            <div class="card-body">
+                                <input 
+                                    type="text" 
+                                    id="quizInput" 
+                                    placeholder="Enter a topic (e.g., World History, Science, Technology...)"
+                                    class="topic-input"
+                                >
+                                <div class="button-group">
+                                    <button class="btn btn-success" id="generateQuizBtn">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Generate Quiz
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="clearHistory('quiz')">
+                                        <i class="fas fa-trash"></i>
+                                        Clear History
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="history-section">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-history"></i> Quiz History</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chat-history" id="quizHistory">
+                                    <div class="empty-state">
+                                        <i class="fas fa-question-circle"></i>
+                                        <p>No quizzes yet. Enter a topic to get started!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Tab -->
+            <div class="tab-content" id="chat">
+                <div class="chat-container">
+                    <div class="card chat-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-comments"></i> AI Chatbot</h3>
+                            <button class="btn btn-secondary btn-sm" onclick="clearHistory('chat')">
+                                <i class="fas fa-trash"></i>
+                                Clear
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="chat-history" id="chatHistory">
+                                <div class="empty-state">
+                                    <i class="fas fa-robot"></i>
+                                    <p>Hello! I'm your AI assistant. How can I help you today?</p>
+                                </div>
+                            </div>
+                            <div class="chat-input-container">
+                                <div class="input-group">
+                                    <input 
+                                        type="text" 
+                                        id="chatInput" 
+                                        placeholder="Type your message here..."
+                                        class="chat-input"
+                                    >
+                                    <button class="btn btn-info" id="sendChatBtn">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Modal -->
+    <div class="modal" id="loadingModal">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <p>Processing your request...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>
